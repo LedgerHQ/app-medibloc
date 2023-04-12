@@ -16,7 +16,7 @@
 
 import Zemu from '@zondax/zemu'
 // @ts-ignore
-import CosmosApp from 'ledger-cosmos-js'
+import { CosmosApp } from '@zondax/ledger-cosmos-js'
 import { DEFAULT_OPTIONS, DEVICE_MODELS, example_tx_str_basic, example_tx_str_basic2, ibc_denoms } from './common'
 
 // @ts-ignore
@@ -194,7 +194,7 @@ describe('Standard', function () {
       console.log(respPk)
 
       // do not wait here..
-      const signatureRequest = app.sign(path, tx)
+      const signatureRequest = app.sign(path, Buffer.from(tx))
 
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
@@ -239,7 +239,7 @@ describe('Standard', function () {
       console.log(respPk)
 
       // do not wait here..
-      const signatureRequest = app.sign(path, tx)
+      const signatureRequest = app.sign(path, Buffer.from(tx))
 
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
@@ -283,7 +283,7 @@ describe('Standard', function () {
       console.log(respPk)
 
       // do not wait here..
-      const signatureRequest = app.sign(path, tx)
+      const signatureRequest = app.sign(path, Buffer.from(tx))
 
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
@@ -328,7 +328,7 @@ describe('Standard', function () {
       console.log(respPk)
 
       // do not wait here..
-      const signatureRequest = app.sign(path, tx)
+      const signatureRequest = app.sign(path, Buffer.from(tx))
 
       // Wait until we are not in the main menu
       await sim.waitUntilScreenIsNot(sim.getMainMenuSnapshot())
